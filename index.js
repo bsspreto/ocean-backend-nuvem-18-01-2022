@@ -3,7 +3,7 @@ const { MongoClient, ObjectId } = require("mongodb");
 
 //const url = "mongodb+srv://admin:zLb5fiVP7c5PyfG@cluster0.76akt.mongodb.net";
 const url = "mongodb+srv://admin:admin@cluster0.qmacg.mongodb.net/";
-const dbName = "ocean_bancodados_18_01_2022";
+const dbName = "ocean";
 
 async function main() {
     // Conexão com o Banco de Dados
