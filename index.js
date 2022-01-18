@@ -3,24 +3,17 @@ const { MongoClient, ObjectId } = require("mongodb");
 
 //const url = "mongodb+srv://admin:zLb5fiVP7c5PyfG@cluster0.76akt.mongodb.net";
 const url = "mongodb+srv://admin:admin@cluster0.qmacg.mongodb.net/";
-
 const dbName = "ocean_bancodados_18_01_2022";
 
 async function main() {
     // Conexão com o Banco de Dados
-
     const client = await MongoClient.connect(url);
-
     const db = client.db(dbName);
+    const collection = db.collection("hero");
 
-    const collection = db.collection("herois");
+    const app = express(); // Aplicação em Express
 
-    // Aplicação em Express
-
-    const app = express();
-
-    // Sinalizo para o Express que o body das requisições
-    // estará sempre estruturado em JSON
+    // Sinalizo para o Express que o body das requisições estará sempre estruturado em JSON
     app.use(express.json());
 
     // Endpoint "/"
@@ -34,7 +27,6 @@ async function main() {
     });
 
     const lista = ["Mulher Maravilha", "Capitã Marvel", "Homem de Ferro"];
-    //              0                   1                2
 
     // [GET] "/herois" - Read All (Ler todos os registros)
     app.get("/herois", async function (req, res) {
